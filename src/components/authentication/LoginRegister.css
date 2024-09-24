@@ -1,0 +1,27 @@
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FA8A8A;;
+}
+
+.body .button{
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+}
+
+.button button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #8ED447;
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+}
