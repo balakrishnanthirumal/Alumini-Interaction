@@ -1,0 +1,26 @@
+const PostFooter = () => {
+  return (
+    <>
+    <div className="flex gap-4 mt-3">
+    <div className="flex gap-1 ml-3">
+      <div>
+        <i className="fa-solid fa-thumbs-up fa-lg cursor-pointer"></i>
+      </div>
+      <p>100</p>
+    </div>
+
+    <div className="flex gap-1">
+      <div>
+        <i className="fa-solid fa-comment fa-lg cursor-pointer"></i>
+      </div>
+      <p>100</p>
+    </div>
+  </div>
+
+  <div className="ml-3 mt-2 cursor-pointer">
+    <p>View all comments</p>
+  </div>
+  </>
+  )
+}
+export default PostFooter

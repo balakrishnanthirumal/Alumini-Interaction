@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
-import ProfileCard from "../../Profile/ProfileCard";
-import NavigationBar from "../../NavigationBar/NavigationBar";
+import ProfileCard from "../../components/ProfileCard/ProfileCard";
+import NavigationBar from "../../components/NavigationBar/NavigationBar";
 
 const ProfilePage = () => {
   const [search, setSearch] = useState({
@@ -39,7 +39,7 @@ const ProfilePage = () => {
           <div className="inputBox-Section flex justify-evenly">
             <div className="organisation">
               <select
-                className="pointer border-none outline-none rounded-[7px] w-[150px] p-2"
+                className="cursor-pointer border-none outline-none rounded-[7px] w-[150px] p-2"
                 value={search.organisation} // Bind value to state
                 onChange={(e) => setSearch({ ...search, organisation: e.target.value })}
               >
@@ -51,7 +51,7 @@ const ProfilePage = () => {
 
             <div className="domain">
               <select
-                className="pointer border-none outline-none rounded-[7px] w-[150px] p-2"
+                className="cursor-pointer border-none outline-none rounded-[7px] w-[150px] p-2"
                 value={search.domain} // Bind value to state
                 onChange={(e) => setSearch({ ...search, domain: e.target.value })}
               >
@@ -63,7 +63,7 @@ const ProfilePage = () => {
 
             <div className="location">
               <select
-                className="pointer border-none outline-none rounded-[7px] w-[150px] p-2"
+                className="cursor-pointer border-none outline-none rounded-[7px] w-[150px] p-2"
                 value={search.location} // Bind value to state
                 onChange={(e) => setSearch({ ...search, location: e.target.value })}
               >
@@ -75,7 +75,7 @@ const ProfilePage = () => {
 
             <div className="designation">
               <select
-                className="pointer border-none outline-none rounded-[7px] w-[150px] p-2"
+                className="cursor-pointer border-none outline-none rounded-[7px] w-[150px] p-2"
                 value={search.designation} 
                 onChange={(e) => setSearch({ ...search, designation: e.target.value })}
               >
