@@ -7,8 +7,9 @@ import AluminiLoginForm from './components/authentication/AluminiLoginForm'
 import StudentRegistration from './components/authentication/StudentRegistrationForm'
 import AluminiRegister from './components/authentication/AluminiRegister'
 import HomePage from "./Page/HomePage/HomePage"
-import ProfilePage from './Page/ProfilePage/ProfilePage'
+import SearchPage from './Page/SearchPage/SearchPage'
 import FeedPage from './Page/FeedPage/FeedPage'
+import ProfilePage from './Page/ProfilePage/ProfilePage'
 
 function App() {
 
@@ -21,8 +22,9 @@ function App() {
         <Route path='/studentregistration/' element = {<StudentRegistration />}/>
         <Route path='/aluminiregistration' element = {<AluminiRegister/>}/>
         <Route path='/home' element = {<HomePage/>}/>
-        <Route path='/profile' element = {<ProfilePage/>}/>
+        <Route path='/search' element = {<SearchPage/>}/>
         <Route path='/feed' element = {<FeedPage />}/>
+        <Route path='/:username' element = {<ProfilePage />}/>
       </Routes>
      
     

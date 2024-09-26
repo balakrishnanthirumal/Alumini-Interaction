@@ -28,6 +28,8 @@ const PostContent = () => {
       >
         {isReadMore ? 'Read More' : 'Read Less'}
       </button>
+
+      <hr className="mx-3 mt-2"/>
     </div>
   );
 };

@@ -1,105 +1,40 @@
-import { useEffect, useState } from "react";
-import { CiSearch } from "react-icons/ci";
-import ProfileCard from "../../components/ProfileCard/ProfileCard";
-import NavigationBar from "../../components/NavigationBar/NavigationBar";
+import PostCard from "../../components/PostCard/PostCard"
 
 const ProfilePage = () => {
-  const [search, setSearch] = useState({
-    search: "",
-    organisation: "",
-    domain: "",
-    location: "",
-    designation: "",
-  });
-
-  useEffect(() => {
-    console.log(search);
-  }, [search]);
-
   return (
-    <>
-      <div className="bg-[#FA8A8A] h-[1300px]">
-        <NavigationBar />
-        <div
-          className="rounded-[10px] h-[40px] w-[250px] bg-[#fff]
-           text-center flex items-center justify-center gap-3 ml-[100px] mt-[50px]"
-        >
-          <CiSearch className="scale-[1.5]" />
-          <input
-            type="text"
-            placeholder="Search"
-            className="border-none outline-none"
-            value={search.search}
-            onChange={(e) => setSearch({ ...search, search: e.target.value })}
-          />
+    <section className="bg-[#FA8A8A] min-h-[1024px] max-h-auto w-full pb-[100px]">
+
+        <div className=" h-[382px] w-full relative ">
+            <div className=" profile-pic-container  h-[250px] w-[250px] rounded-[50%] ml-[500px] flex items-center justify-center translate-x-[50%] mt-4 overflow-hidden absolute ">
+            <img src="/profilePic.png" className="h-[250px] w-[250px] rounded-[50%] object-contain"/>
+            </div>
+
+            <div className="flex gap-4 justify-around items-center pb-[300px] h-auto  w-full ">
+                <div className="flex flex-col items-center gap-3 pb-4 absolute top-[232px] left-[282px] bottom-[100px]
+                ">
+                    <h1 className="text-5xl">120</h1>
+                    <h1 className="text-3xl">OBSERVER</h1>
+                </div>
+                <div className="text-4xl top-[290px] absolute mr-10 ">
+                    Full Name
+                </div>
+                <div className="flex flex-col items-center gap-3 pb-4 absolute top-[232px]  right-[307px]">
+                    <h1 className="text-5xl">300</h1>
+                    <h1 className="text-3xl">OBSERVING</h1>
+                </div>
+            </div>
         </div>
 
-        <div className="ml-[100px] mt-[100px]">
-          <h1 className="text-3xl mb-2 ml-9">Filters</h1>
-          <div className="inputBox-Section flex justify-evenly">
-            <div className="organisation">
-              <select
-                className="cursor-pointer border-none outline-none rounded-[7px] w-[150px] p-2"
-                value={search.organisation} // Bind value to state
-                onChange={(e) => setSearch({ ...search, organisation: e.target.value })}
-              >
-                <option value="Google">Google</option>
-                <option value="Facebook">Facebook</option>
-                <option value="Wells Fargo">Wells Fargo</option>
-              </select>
-            </div>
-
-            <div className="domain">
-              <select
-                className="cursor-pointer border-none outline-none rounded-[7px] w-[150px] p-2"
-                value={search.domain} // Bind value to state
-                onChange={(e) => setSearch({ ...search, domain: e.target.value })}
-              >
-                <option value="Web Developer">Web Developer</option>
-                <option value="App Developer">App Developer</option>
-                <option value="SOC Analyst">SOC Analyst</option>
-              </select>
-            </div>
-
-            <div className="location">
-              <select
-                className="cursor-pointer border-none outline-none rounded-[7px] w-[150px] p-2"
-                value={search.location} // Bind value to state
-                onChange={(e) => setSearch({ ...search, location: e.target.value })}
-              >
-                <option value="Bangalore">Bangalore</option>
-                <option value="Hyderabad">Hyderabad</option>
-                <option value="Chennai">Chennai</option>
-              </select>
-            </div>
-
-            <div className="designation">
-              <select
-                className="cursor-pointer border-none outline-none rounded-[7px] w-[150px] p-2"
-                value={search.designation} 
-                onChange={(e) => setSearch({ ...search, designation: e.target.value })}
-              >
-                <option value="Junior Software Engineer">Junior Software Engineer</option>
-                <option value="Manager">Manager</option>
-                <option value="HR">HR</option>
-              </select>
-            </div>
-          </div>
+        <div className="flex justify-center items-center h-[100px] w-full gap-[300px] border-b-2 border-t-2">
+            <div className="text-3xl border-solid border-2 px-[40px] py-[10px] rounded-[40px] bg-[#8ED447]">Posts</div>
+            <div className="text-3xl border-solid border-2 px-[40px] py-[10px] rounded-[40px] bg-[#8ED447]">Queries</div>
         </div>
 
-        <div className="Search-results mt-[200px] ml-[150px] max-w-[1200px] max-h-[700px] min-h-5 grid grid-cols-3 mx-auto overflow-y-auto gap-8 align-middle pl-[80px]">
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-        </div>
-      </div>
-    </>
-  );
-};
+    <div className="mt-[50px] flex justify-center items-center h-auto w-full">
+        <PostCard/>
+    </div>
 
-export default ProfilePage;
+    </section>
+  )
+}
+export default ProfilePage
