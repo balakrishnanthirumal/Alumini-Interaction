@@ -10,6 +10,8 @@ import HomePage from "./Page/HomePage/HomePage"
 import SearchPage from './Page/SearchPage/SearchPage'
 import FeedPage from './Page/FeedPage/FeedPage'
 import ProfilePage from './Page/ProfilePage/ProfilePage'
+import QueryAnswerPage from './Page/QueryAnswerPage/QueryAnswerPage'
+import QueryFeedPage from './Page/QueryFeedPage/QueryFeedPage'
 
 function App() {
 
@@ -25,6 +27,8 @@ function App() {
         <Route path='/search' element = {<SearchPage/>}/>
         <Route path='/feed' element = {<FeedPage />}/>
         <Route path='/:username' element = {<ProfilePage />}/>
+        <Route path='/:username/:queryId' element = {<QueryAnswerPage />}/>
+        <Route path='/queryfeed' element = {<QueryFeedPage />}/>
       </Routes>
      
     

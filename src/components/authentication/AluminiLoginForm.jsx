@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 const AluminiLoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [inputs, setInputs] = useState({
+    email: "",
+    password: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <>
       <div className="bg-[#BFC7EE]  flex flex-col items-center h-full">
@@ -14,26 +17,40 @@ const AluminiLoginForm = () => {
             <div className="flex flex-col gap-[20px] ">
               <input
                 type="text"
-                value={email}
+                value={setInputs.email}
                 placeholder="Email ID:"
                 className="
-                        w-[250px] 
+                        w-[280px] 
                         h-[40px]
                         rounded-[10px]
                         align-middle
                         pl-3
                         
                         "
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) =>
+                  setInputs({ ...inputs, email: e.target.value })
+                }
               />
 
-              <input
-                type="password"
-                value={password}
-                placeholder="Password:"
-                className="rounded-[10px] h-[40px] w-[250px] pl-3"
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <div className=" w-[280px] bg-[#fff] rounded-[10px]">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={setInputs.password}
+                  placeholder="Password:"
+                  className="rounded-[10px] h-[40px] w-[250px] pl-3 outline-none"
+                  onChange={(e) =>
+                    setInputs({ ...inputs, password: e.target.value })
+                  }
+                />
+                <button
+                  onClick={(e) => {
+                    e.preventDefault(); 
+                    setShowPassword(!showPassword);
+                  }}
+                >
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </div>
 
               <button
                 type="submit"
@@ -43,13 +60,13 @@ const AluminiLoginForm = () => {
               </button>
             </div>
           </form>
-          <Link to= "/aluminiregistration">
-          <button
-            type="submit"
-            className="bg-[#A0ADF3] h-[50px] w-[100px] mt-[40px] border-solid border-[1px] rounded-[10px]"
-          >
-            Create Account
-          </button>
+          <Link to="/aluminiregistration">
+            <button
+              type="submit"
+              className="bg-[#A0ADF3] h-[50px] w-[100px] mt-[40px] border-solid border-[1px] rounded-[10px]"
+            >
+              Create Account
+            </button>
           </Link>
         </div>
       </div>
