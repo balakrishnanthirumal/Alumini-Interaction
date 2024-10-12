@@ -35,7 +35,7 @@ const LoginForm = () => {
                         rounded-[10px]
                         align-middle
                         pl-3
-                        
+                        outline-none
                         "
               onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
             />

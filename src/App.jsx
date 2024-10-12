@@ -12,9 +12,10 @@ import FeedPage from './Page/FeedPage/FeedPage'
 import ProfilePage from './Page/ProfilePage/ProfilePage'
 import QueryAnswerPage from './Page/QueryAnswerPage/QueryAnswerPage'
 import QueryFeedPage from './Page/QueryFeedPage/QueryFeedPage'
-
+import { useSelector } from 'react-redux'
 function App() {
-
+  const authUser = useSelector(state => state.auth.user)
+  console.log(authUser)
   return (
     <div className="test">
       <Routes>
