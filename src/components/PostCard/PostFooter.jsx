@@ -1,4 +1,4 @@
-const PostFooter = () => {
+const PostFooter = ({post}) => {
   return (
     <>
     <div className="flex gap-4 mt-3">
@@ -6,20 +6,18 @@ const PostFooter = () => {
       <div>
         <i className="fa-solid fa-thumbs-up fa-lg cursor-pointer"></i>
       </div>
-      <p>100</p>
+      <p>{post.likes.length}</p>
     </div>
 
     <div className="flex gap-1">
       <div>
         <i className="fa-solid fa-comment fa-lg cursor-pointer"></i>
       </div>
-      <p>100</p>
+      <p>{post.comments.length}</p>
     </div>
   </div>
 
-  <div className="ml-3 mt-2 cursor-pointer">
-    <p>View all comments</p>
-  </div>
+  
   </>
   )
 }

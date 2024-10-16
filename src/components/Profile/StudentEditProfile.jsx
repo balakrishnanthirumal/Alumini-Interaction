@@ -25,8 +25,21 @@ const StudentEditProfile = ({ isOpen, onClose }) => {
 
     domain: "",
   });
-
+  const fileRef = useRef(null);
+  const {selectedFile, setSelectedFile, handleImageChange } = usePreviewImage();
   const authUser = useSelector((state) => state.auth.user);
+  const {editProfile, isUpdating} = useEditProfile();
+  const showToast = useShowToast();
+  const handleEditProfile = async() => {
+    try {
+        await editProfile(inputs, selectedFile);
+        setSelectedFile(null);
+        onClose();
+    } catch (error) {
+        showToast("Error", error.message, "error");
+    }
+  };
+
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>

@@ -4,6 +4,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { FaRegStar } from "react-icons/fa";
 
 import PostCard from "../../components/PostCard/PostCard";
+import CreatePost from "../../components/NavigationBar/createPost";
 
 const FeedPage = () => {
   return (
@@ -14,9 +15,7 @@ const FeedPage = () => {
         <div className="text-center text-4xl  ml-[600px]">Feed</div>
 
         <div className="feed-nav-item flex gap-[20px]">
-          <div>
-            <FaRegPlusSquare className="text-2xl" />
-          </div>
+          <CreatePost/>
           <div>
             <IoMdNotifications className="text-2xl" />
           </div>
@@ -27,10 +26,10 @@ const FeedPage = () => {
       </div>
       <div className="mt-[50px] h-auto w-full flex flex-col items-center  py-[50px]">
 
+        {/* <PostCard/>
         <PostCard/>
         <PostCard/>
-        <PostCard/>
-        <PostCard/>
+        <PostCard/> */}
 
       </div>
         
