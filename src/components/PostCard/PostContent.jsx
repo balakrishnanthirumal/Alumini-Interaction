@@ -33,7 +33,7 @@ const PostContent = ({post}) => {
       </button>}
       
 
-      <hr className="mx-3 mt-2"/>
+      <hr className=" mt-2"/>
     </div>
   );
 };

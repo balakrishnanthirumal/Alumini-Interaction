@@ -1,6 +1,8 @@
 const QueryAnswerContent = () => {
   return (
     <main className="mt-[50px] w-[80%] mx-auto bg-[#D9D9D9] h-auto border-2 pt-[20px] pb-[20px]">
+
+      
     <div className=" h-[auto] flex flex-col ">
       <p className="ml-[30px] break-words text-[25px]">
         Answer 1:&nbsp;&nbsp;&nbsp;How to survive in the life and how to

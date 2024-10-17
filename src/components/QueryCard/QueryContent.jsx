@@ -1,9 +1,9 @@
-const QueryContent = ({queries}) => {
+const QueryContent = ({query}) => {
   return (
     <>
-    <div className="ml-[30px] mt-[] h-auto pt-[30px] text-[25px]">QUESTION:</div>
+    <div className="ml-[30px] h-auto pt-[30px] text-[25px]">QUESTION:</div>
     <p className="ml-[80px] mt-[]  text-ellipsis h-auto break-words text-[20px]">
-      {queries.caption}
+      {query.caption}
     </p>
     </>
   )
