@@ -10,18 +10,10 @@ import { createSlice } from "@reduxjs/toolkit";
       setUserProfile: (state, action) => {
         state.userProfile = action.payload;
       },
-
-      addPost: (state, action) => {
-        state.userProfile = {...state.userProfile, posts: [action.payload.id, ...state.userProfile.posts]};
     },
-
-      addQuery: (state, action) => {
-        state.userProfile = {...state.userProfile, queries: [action.payload.id, ...state.userProfile.queries]};
-      }
-  }
   });
   
 
-export const { setUserProfile, addPost, addQuery } = userProfileSlice.actions;
+export const { setUserProfile } = userProfileSlice.actions;
 export default userProfileSlice.reducer;
 

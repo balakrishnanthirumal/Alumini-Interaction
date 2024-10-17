@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { auth } from "../../firebase/firebase"
-const QueryHeader = ({queries}) => {
+import { auth } from "../../firebase/firebase";
+const QueryHeader = () => {
   const [isFollow, setIsFollow] = useState(false);
   const authUser = useSelector((state) => state.auth.user);
   return (

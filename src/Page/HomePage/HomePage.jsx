@@ -28,24 +28,24 @@ const HomePage = () => {
       />
       <ul className="absolute top-[50px] right-[100px] flex gap-[50px]">
         <li className="list-none text-2xl font-bold cursor-pointer">
-          <Link to={handleNavigation("/home")}>HOME</Link>
+          <Link to={handleNavigation("/home")}>Home</Link>
         </li>
        
         <li className="list-none text-2xl font-bold cursor-pointer">
-          <Link to={handleNavigation(`/${authUser?.username}`)}>PROFILE</Link>
+          <Link to={handleNavigation("/profile")}>Profile</Link>
         </li>
         <li className="list-none text-2xl font-bold cursor-pointer">
-          <Link to={handleNavigation("/feed")}>FEED</Link>
+          <Link to={handleNavigation("/feed")}>Feed</Link>
         </li>
         <li className="list-none text-2xl font-bold cursor-pointer">
-          <Link to={handleNavigation("/queries")}>QUERIES</Link>
+          <Link to={handleNavigation("/queries")}>Queries</Link>
         </li>
         <li className="list-none text-2xl font-bold cursor-pointer">
           {authUser ? (
-            <button onClick={handleLogout}>LOGOUT</button>
+            <button onClick={handleLogout}>LogOut</button>
           ) : (
             <Link to="/">
-              <button>SIGNIN/SIGNOUT</button>
+              <button>SignIn/SignUp</button>
             </Link>
           )}
         </li>

@@ -31,7 +31,7 @@ const AluminiEditProfile = ({ isOpen, onClose }) => {
     location: "",
   });
   const fileRef = useRef(null);
-  const {selectedFile, setSelectedFile, handleImageChange } = usePreviewImage();
+  const [selectedFile, setSelectedFile, handleImageChange ] = usePreviewImage();
   const authUser = useSelector((state) => state.auth.user);
   const {editProfile, isUpdating} = useEditProfile();
   const showToast = useShowToast();

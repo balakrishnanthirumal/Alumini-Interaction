@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import ProfileCard from "../../components/ProfileCard/ProfileCard";
 import NavigationBar from "../../components/NavigationBar/NavigationBar";
-import useSearchUser from "../../CommonHooks/useSearchUser";
-
 
 const SearchPage = () => {
   const [search, setSearch] = useState({
@@ -13,25 +11,9 @@ const SearchPage = () => {
     location: "",
     designation: "",
   });
-  const [filteredUser, setFilteredUser] = useState([]);
-  const {user, isLoading, getUserProfile} = useSearchUser();
+
   useEffect(() => {
-    getUserProfile(search);
-    
-    if(user && user.length > 0) {
-      const filtered = user.filter(({username, organisationName, location, domainKnowledge, designation}) => 
-        username.toLowerCase() === search.search.toLowerCase() ||
-        organisationName.toLowerCase() === search.organisation.toLowerCase() ||
-        location.toLowerCase() === search.location.toLowerCase() ||
-        domainKnowledge.toLowerCase() === search.domain.toLowerCase() ||
-        designation.toLowerCase() === search.designation.toLowerCase()
-      )
-      setFilteredUser(filtered)
-    }
-    
-    
-
-
+    console.log(search);
   }, [search]);
 
   return (
@@ -48,7 +30,7 @@ const SearchPage = () => {
             placeholder="Search"
             className="border-none outline-none"
             value={search.search}
-            onChange={(e) => setSearch({ ...search, search: e.target.value.toLowerCase() })}
+            onChange={(e) => setSearch({ ...search, search: e.target.value })}
           />
         </div>
 
@@ -61,7 +43,6 @@ const SearchPage = () => {
                 value={search.organisation} // Bind value to state
                 onChange={(e) => setSearch({ ...search, organisation: e.target.value })}
               >
-                <option value="">Select an option</option>
                 <option value="Google">Google</option>
                 <option value="Facebook">Facebook</option>
                 <option value="Wells Fargo">Wells Fargo</option>
@@ -74,8 +55,7 @@ const SearchPage = () => {
                 value={search.domain} // Bind value to state
                 onChange={(e) => setSearch({ ...search, domain: e.target.value })}
               >
-                <option value="">Select an option</option>
-                <option value="Web Development">Web Development</option>
+                <option value="Web Developer">Web Developer</option>
                 <option value="App Developer">App Developer</option>
                 <option value="SOC Analyst">SOC Analyst</option>
               </select>
@@ -87,7 +67,6 @@ const SearchPage = () => {
                 value={search.location} // Bind value to state
                 onChange={(e) => setSearch({ ...search, location: e.target.value })}
               >
-                <option value="">Select an option</option>
                 <option value="Bangalore">Bangalore</option>
                 <option value="Hyderabad">Hyderabad</option>
                 <option value="Chennai">Chennai</option>
@@ -100,7 +79,6 @@ const SearchPage = () => {
                 value={search.designation} 
                 onChange={(e) => setSearch({ ...search, designation: e.target.value })}
               >
-                <option value="">Select an option</option>
                 <option value="Junior Software Engineer">Junior Software Engineer</option>
                 <option value="Manager">Manager</option>
                 <option value="HR">HR</option>
@@ -110,16 +88,18 @@ const SearchPage = () => {
         </div>
 
         <div className="Search-results mt-[200px] ml-[150px] max-w-[1200px] max-h-[700px] min-h-5 grid grid-cols-3 mx-auto overflow-y-auto gap-8 align-middle pl-[80px]">
-          
-          
-          
-        {filteredUser.length > 0 && filteredUser.map((user) => (
-    <ProfileCard key={user.uid} user={user} /> // Pass the individual user object here
-  ))}        
+          <ProfileCard />
+          <ProfileCard />
+          <ProfileCard />
+          <ProfileCard />
+          <ProfileCard />
+          <ProfileCard />
+          <ProfileCard />
+          <ProfileCard />
         </div>
       </div>
     </>
   );
 };
 
-export default SearchPage; 
+export default SearchPage;

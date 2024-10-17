@@ -11,32 +11,27 @@ const NavigationBar = () => {
       <ul className="list-none flex gap-[50px]  justify-end mr-[80px]">
         <li className="list-none  font-bold cursor-pointer">
           <Link to = '/home'>
-          HOME
-          </Link>
-          </li>
-          <li className="list-none  font-bold cursor-pointer">
-          <Link to = '/search'>
-          SEARCH
+          Home
           </Link>
           </li>
         <li className="list-none  font-bold cursor-pointer">
-        <Link to={`/${authUser?.username}`}>PROFILE</Link>
+        <Link to={`/${authUser.username}`}>Profile</Link>
 
           </li>
         <li className="list-none  font-bold cursor-pointer">
-          <Link to = '/feed'>
-          FEED
+          <Link to = '/search'>
+          Feed
           </Link>
           </li>
         <li className="list-none  font-bold cursor-pointer">
-          <Link to ='/queryfeed'>
-          QUERIES
+          <Link to ='/query'>
+          Queries
           </Link>
           </li>
 
           <li className="list-none  font-bold cursor-pointer">
           {authUser ? (
-            <button onClick={handleLogout}>LOGOUT</button>
+            <button onClick={handleLogout}>LogOut</button>
           ) : (
             <Link to="/">
               <button>SignIn/SignUp</button>

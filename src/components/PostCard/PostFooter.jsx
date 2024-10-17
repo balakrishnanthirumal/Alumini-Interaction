@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import Commented from "./Comment";
 import usePostComment from "../../CommonHooks/usePostComment";
@@ -16,6 +17,9 @@ const PostFooter = ({post}) => {
     setCommentCaption("");
 }
 
+=======
+const PostFooter = () => {
+>>>>>>> parent of 89bbaa5 (Done)
   return (
     <>
     <div className="flex gap-4 mt-3">
@@ -23,14 +27,14 @@ const PostFooter = ({post}) => {
       <div>
         <i className="fa-solid fa-thumbs-up fa-lg cursor-pointer"></i>
       </div>
-      <p>{post.likes.length}</p>
+      <p>100</p>
     </div>
 
     <div className="flex gap-1">
       <div onClick={() => setShowComment(!showComment)}>
         <i className="fa-solid fa-comment fa-lg cursor-pointer"></i>
       </div>
-      <p>{post.comments.length}</p>
+      <p>100</p>
     </div>
 
   </div>
@@ -48,7 +52,9 @@ const PostFooter = ({post}) => {
   
 
 
-  
+  <div className="ml-3 mt-2 cursor-pointer">
+    <p>View all comments</p>
+  </div>
   </>
   )
 }

@@ -1,19 +1,15 @@
-import { useSelector } from "react-redux";
-
-const PostHeader = ({post}) => {
-
-  const authUser = useSelector((state) => state.auth.user);
+const PostHeader = () => {
   return (
     <div className="flex justify-between items-center pt-[25px] pr-4">
       <div className="flex gap-4 items-center">
         <div className="img-container h-[50px] w-[50px] rounded-full overflow-hidden ml-[20px]">
           <img
-            src={authUser?.profilePicURL ? authUser?.profilePicURL : "/profilePic.png"}
+            src="/profilePic.png"
             alt="Profile Picture"
             className="h-full w-full object-contain"
           />
         </div>
-        <h1 className="text-2xl font-medium">{authUser?.username}</h1>
+        <h1 className="text-2xl font-medium">Username</h1>
       </div>
       <div className="flex gap-4 items-center">
         <i className="fa-solid fa-star"></i>

@@ -50,7 +50,7 @@ const ProfileHeader = () => {
               <h2 className="text-4xl">@{userProfile?.username}</h2>
               {visitingAnotherProfile && (
                 <button
-                  className="text-2xl mt-[10px] bg-[#ffffff] border-2 border-[#FA8A8A] rounded-[10px] px-[20px] py-[10px] text-[#FA8A8A] hover:bg-[#FA8A8A] hover:text-[#fff] transition mb-[15px]"
+                  className="text-2xl mt-[10px] bg-[#ffffff] border-2 border-[#FA8A8A] rounded-[10px] px-[20px] py-[10px] text-[#FA8A8A] hover:bg-[#FA8A8A] hover:text-[#fff] transition"
                   onClick={handleFollowUser}
                 >
                   {isUpdating
@@ -62,7 +62,7 @@ const ProfileHeader = () => {
               )}
               {visitingOwnProfile && (
                 <button
-                  className="text-2xl mt-[10px] bg-[#ffffff] border-2 border-[#FA8A8A] rounded-[10px] px-[20px] py-[10px] text-[#FA8A8A] hover:bg-[#FA8A8A] hover:text-[#fff] transition mb-[15px]"
+                  className="text-2xl mt-[10px] bg-[#ffffff] border-2 border-[#FA8A8A] rounded-[10px] px-[20px] py-[10px] text-[#FA8A8A] hover:bg-[#FA8A8A] hover:text-[#fff] transition"
                   onClick={onOpen}
                 >
                   Edit Profile
