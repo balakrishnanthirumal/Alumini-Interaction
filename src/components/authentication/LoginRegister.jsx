@@ -6,7 +6,7 @@ const LoginRegister = () => {
   return (
     <div className="body">
         <div>
-            <h1>Welcome to Alumini Association </h1>
+            <h1 className="heading text-3xl align-middle text-center">Welcome to Alumini Association </h1>
             <div className="button">
                 <Link to="/studentlogin">
                 <button >Student</button>

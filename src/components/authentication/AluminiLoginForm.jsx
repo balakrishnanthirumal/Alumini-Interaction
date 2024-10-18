@@ -10,7 +10,7 @@ const AluminiLoginForm = () => {
   const {loading, error, loginIn} = useLogin();
   return (
     <>
-      <div className="bg-[#BFC7EE]  flex flex-col items-center h-full">
+      <div className="bg-[#BFC7EE]  flex flex-col items-center h-[100vh]">
         <h2 className="text-3xl mt-[50px]">Alumini</h2>
 
         <div className=" bg-[#A0ADF3] h-[500px] w-[400px] mt-[100px] flex flex-col justify-center items-center">

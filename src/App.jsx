@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="test">
       <Routes>
-        <Route path='/' element = {!authUser? <LoginRegister /> : <Navigate to = '/home'/>}/>
+        <Route path='/' element = { <Navigate to = '/home'/>}/>
         <Route path='studentlogin/' element = {!authUser? <LoginForm /> : <Navigate to = '/home'/>}/>
         <Route path='aluminilogin/' element = {!authUser? <AluminiLoginForm /> : <Navigate to = '/home'/>}/>
         <Route path='/studentregistration/' element = {!authUser? <StudentRegistration /> : <Navigate to = '/home'/>}/>
