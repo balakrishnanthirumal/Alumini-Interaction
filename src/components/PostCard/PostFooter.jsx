@@ -17,6 +17,7 @@ const PostFooter = ({post}) => {
     </div>
   </div>
 
+<<<<<<< HEAD
   <div className="ml-3 mt-2 cursor-pointer">
     <p>View all comments</p>
   </div>
@@ -24,3 +25,10 @@ const PostFooter = ({post}) => {
   )
 }
 export default PostFooter
+=======
+  
+  </>
+  )
+}
+export default PostFooter
+>>>>>>> parent of ca99fe3 (DOne)
