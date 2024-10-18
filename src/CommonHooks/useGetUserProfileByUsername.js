@@ -18,13 +18,12 @@ const useGetUserProfileByUsername = (username) => {
         const q = query(collection(firestore, "user"), where("username", "==", username));
         const querySnapshot = await getDocs(q);
 
-        // If no user profile found, set to null in Redux store
         if (querySnapshot.empty) {
-          dispatch(setUserProfile(null)); // Update Redux store with null for "not found"
+          dispatch(setUserProfile(null)); 
           return;
         }
 
-        // If user profile found, update Redux store with the profile data
+      
         let userDoc;
         querySnapshot.forEach((doc) => {
           userDoc = doc.data();
@@ -39,7 +38,7 @@ const useGetUserProfileByUsername = (username) => {
     };
 
     getUserProfile();
-  }, [dispatch, username, showToast]);
+  }, [dispatch, username, showToast, setIsLoading]);
 
   return { isLoading, userProfile };
 };

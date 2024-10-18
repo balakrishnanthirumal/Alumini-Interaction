@@ -5,13 +5,12 @@ import { firestore } from "../firebase/firebase";
 
 const useSearchUser = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState([]);
   const showToast = useShowToast();
 
   const getUserProfile = async () => {
     setIsLoading(true);
     try {
-      // Query for users where isAlumini is true
       const userQuery = query(
         collection(firestore, "user"),
         where("isAlumini", "==", true)
@@ -21,7 +20,7 @@ const useSearchUser = () => {
 
       if (querySnapshot.empty) {
         showToast("Error", "No users found", "error");
-        setUser(null);
+        setUser([]);
       } else {
         const results = [];
         querySnapshot.forEach((doc) => {
@@ -31,7 +30,7 @@ const useSearchUser = () => {
       }
     } catch (error) {
       showToast("Error", error.message, "error");
-      setUser(null);
+      setUser([]);
     } finally {
       setIsLoading(false);
     }

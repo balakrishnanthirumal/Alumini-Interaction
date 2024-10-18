@@ -26,7 +26,6 @@ const useGetUserProfileById = (userId) => {
 		};
 		getUserProfile();
 	}, [showToast, setUserProfile, userId]);
-    console.log(userProfile)
 	return { isLoading, userProfile, setUserProfile };
 };
 

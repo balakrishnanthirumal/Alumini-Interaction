@@ -1,36 +1,36 @@
-
-import { useEffect, useState } from "react";
-import { getDoc} from "firebase/firestore";
+import { useState, useEffect } from "react";
+import useShowToast from "./useShowToast";
+import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "../firebase/firebase";
-import { setQuery } from "../store/queryStore";
-import { useParams } from "react-router";
-const useGetQueryCaption = () => {
-	const [isLoading, setIsLoading] = useState(true);
-    const {queryId} = useParams()
-    const [caption, setCaption] = useState(null)
-	console.log(queryId)
-	useEffect(() => {
-		const getQuery = async () => {
-			setIsLoading(true);
-			try {
-				const docRef = doc(firestore, "query", queryId);
-                const docSnap = await getDoc(docRef);
+const useGetQueryById = (queryId) => {
+    const [isFetching, setIsFetching] = useState(false);
+    const [query, setQuery] = useState(null);
+    const showToast = useShowToast();
+    
+    const getQueryById = async () => {
+        setIsFetching(true);
+        setQuery(null);
+        try {
+            const queryRefDoc = doc(firestore, "query", queryId);
+            const queryDoc = await getDoc(queryRefDoc);
+            if (queryDoc.exists()) {
+                setQuery(queryDoc.data());
+            } else {
+                return;
+            }
+        } catch (error) {
+            showToast("Error", error.message, "error");
+        } finally {
+            setIsFetching(false);
+        }
+    };
 
-                if (docSnap.exists()) {
-                    setCaption(docSnap.data())
-                }
-
-			} catch (error) {
-                return
-			} finally {
-				setIsLoading(false);
-			}
-		};
-		getQuery();
+    useEffect(() => {
+         
+            getQueryById();
         
-	}, [setCaption, caption]);
-	
-    console.log(caption)
-	return { isLoading, caption };
+    }, [queryId, setIsFetching]); 
+    return { isFetching, query };
 };
-export default useGetQueryCaption;
+
+export default useGetQueryById;

@@ -1,4 +1,3 @@
-import { div } from "framer-motion/client"
 import useGetUserProfileById from "../../CommonHooks/useGetUserProfileById"
 import { Link } from "react-router-dom"
 
@@ -8,6 +7,7 @@ const Commented = ({comment}) => {
   if(isLoading) {
     return <div>Loading...</div>
   }
+  
   return (
     <div className="border-solid border-[1px] mt-[20px]
     w-[80%] min-h-[40px] rounded-md bg-[#D9D9D9]">

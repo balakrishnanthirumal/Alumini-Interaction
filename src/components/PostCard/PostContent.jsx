@@ -12,12 +12,12 @@ const PostContent = ({post}) => {
   
   return (
     <div>
-      <div className="mt-[20px] min-h-[100px] max-h-[250px] overflow-hidden mb-3">
+      <div className="mt-[20px] min-h-[100px] max-h-[250px] mb-3">
         {post.imageURL && (
            <img
            src={post.imageURL}
            alt=""
-           className="h-auto w-auto object-cover"
+           className="h-[200px] w-[600px] object-contain"
          />
         )}
        

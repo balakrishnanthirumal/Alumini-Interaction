@@ -6,7 +6,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import setUser from "../store/authSlice";
 import { useDispatch } from "react-redux";
 import { setUserProfile } from "../store/userProfileStore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const useEditProfile = () => {
   const [isUpdating, setIsUpdating] = useState(false);
@@ -14,6 +14,8 @@ const useEditProfile = () => {
   const dispatch = useDispatch();
 
   const showToast = useShowToast();
+
+
   const editProfile = async (inputs, selectedFile) => {
     if (isUpdating || !authUser) return;
     setIsUpdating(true);
@@ -26,7 +28,7 @@ const useEditProfile = () => {
         URL = await getDownloadURL(ref(storage, `profilePics/${authUser.uid}`));
       }
       let updatedUser = {};
-        if(authUser.isAlumini){
+      if (authUser.isAlumini) {
         updatedUser = {
           ...authUser,
           name: inputs.name || authUser.name,
@@ -37,32 +39,27 @@ const useEditProfile = () => {
           location: inputs.location || authUser.location,
           profilePicURL: URL || authUser.profilePicURL,
         };
-    }
-    else{
-      updatedUser = {
-        ...authUser,
-        name: inputs.name || authUser.name,
-        username: inputs.username || authUser.username,
-        profilePicURL: URL || authUser.profilePicURL,
-        domainKnowledge: inputs.domainKnowlege || authUser.domainKnowlege,
-
-      };
-    }
-    
-        console.log(updatedUser)
-      
-        await updateDoc(userDocRef, updatedUser);
-        localStorage.setItem("user-info", JSON.stringify(updatedUser));
-        
-        dispatch(setUser(updatedUser));
-        dispatch(setUserProfile(updatedUser));
-        showToast("Success", "Profile Updated Successfully", "success");
+      } else {
+        updatedUser = {
+          ...authUser,
+          name: inputs.name || authUser.name,
+          username: inputs.username || authUser.username,
+          profilePicURL: URL || authUser.profilePicURL,
+          domainKnowledge: inputs.domainKnowlege || authUser.domainKnowledge,
+        };
       }
-     catch (error) {
-      showToast("Error", error.message, "error");
-      
+
+      console.log(updatedUser);
+
+      await updateDoc(userDocRef, updatedUser);
+      localStorage.setItem("user-info", JSON.stringify(updatedUser));
+
+      dispatch(setUser(updatedUser));
+      dispatch(setUserProfile(updatedUser));
+      showToast("Success", "Profile Updated Successfully", "success");
+    } catch (error) {
+      return;
     }
-    
   };
   return { editProfile, isUpdating };
 };

@@ -2,7 +2,7 @@ import { useState } from "react";
 import useShowToast from "./useShowToast";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { firestore } from "../firebase/firebase";
-import { addComment } from "../store/postStore";
+import { addAnswer } from "../store/queryStore";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 const usePostComment = () => {
@@ -11,21 +11,22 @@ const usePostComment = () => {
     const authUser= useSelector((state) => state.auth.user);
     const dispatch = useDispatch();
 
-	const handlePostComment = async (postId, comment) => {
+	const handlePostComment = async (queryId, comment) => {
 		if (isCommenting) return;
-		if (!authUser) return showToast("Error", "You must be logged in to comment", "error");
+		if (!authUser) return showToast("Error", "You must be logged in to answer", "error");
 		setIsCommenting(true);
 		const newComment = {
 			comment,
 			createdAt: Date.now(),
 			createdBy: authUser.uid,
-			postId,
+            queryId: queryId,
 		};
 		try {
-			await updateDoc(doc(firestore, "posts", postId), {
+			await updateDoc(doc(firestore, "query", queryId), {
 				comments: arrayUnion(newComment),
 			});
-			dispatch(addComment(postId, newComment));
+			dispatch(addAnswer(queryId, newComment));
+			showToast("Success", "Answer added successfully", "success");
 		} catch (error) {
 			showToast("Error", error.message, "error");
 		} finally {

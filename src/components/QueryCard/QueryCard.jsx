@@ -13,7 +13,6 @@ const QueryCard = ({query}) => {
     <Link to={`/query/${query.id}`}>
     <QueryContent query={query}/>
     </Link>
-    <QueryFooter query={query}/>
    
     </div>
     </>

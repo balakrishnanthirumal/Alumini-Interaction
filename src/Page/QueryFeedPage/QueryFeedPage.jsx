@@ -8,12 +8,13 @@ import { firestore } from "../../firebase/firebase";
 import { createQuery } from "../../store/queryStore";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import useGetFeedQuery from "../../CommonHooks/UseGetFeedQuery";
 
 const QueryFeedPage = () => {
   const [caption, setCaption] = useState("");
   const { isLoading, handleCreateQuery } = useCreateQuery();
   const showToast = useShowToast();
-
+  const {isUpdating, queries} = useGetFeedQuery();
   const handleCreationQuery = async () => {
     try {
       await handleCreateQuery(caption);
@@ -26,7 +27,7 @@ const QueryFeedPage = () => {
   };
 
   return (
-    <div className="bg-[#FA8A8A] h-auto w-full border-solid border-[1px]">
+    <div className="bg-[#FA8A8A] min-h-[100vh] max-h-max w-full border-solid border-[1px]">
       <NavigationBar />
       <section className="mt-[40px] border-b-[1px] pb-[20px]">
         <div className="text-[36px] w-[153px] h-[44px] mx-auto">QUERIES</div>
@@ -50,7 +51,10 @@ const QueryFeedPage = () => {
         </div>
 
         <div className="w-[750px] p-[10px] mx-auto mt-[80px] rounded-md flex flex-col justify-center items-center">
-          {/* <QueryCard/> */}
+          
+          {!isUpdating ? queries?.map((query) => (
+            <QueryCard key={query.id} query={query} />
+          )) : <div className="text-3xl">Loading...</div>}
         </div>
       </main>
     </div>

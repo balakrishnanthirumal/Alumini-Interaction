@@ -30,6 +30,9 @@ const HomePage = () => {
         <li className="list-none text-2xl font-bold cursor-pointer">
           <Link to={handleNavigation("/home")}>HOME</Link>
         </li>
+        <li className="list-none text-2xl font-bold cursor-pointer">
+          <Link to={handleNavigation("/search")}>SEARCH</Link>
+        </li>
        
         <li className="list-none text-2xl font-bold cursor-pointer">
           <Link to={handleNavigation(`/${authUser?.username}`)}>PROFILE</Link>
