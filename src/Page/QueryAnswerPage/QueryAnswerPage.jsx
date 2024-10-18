@@ -1,6 +1,5 @@
 import QueryAnswerHeader from "../../components/QueryAnswer/QueryAnswerHeader";
 import QueryAnswerContent from "../../components/QueryAnswer/QueryAnswerContent";
-
 const QueryAnswerPage = () => {
   
   return (

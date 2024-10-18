@@ -3,6 +3,7 @@ import Commented from "./Comment";
 import usePostComment from "../../CommonHooks/usePostComment";
 import { useRef } from "react";
 import { nanoid } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 
 const PostFooter = ({post}) => {
@@ -11,6 +12,8 @@ const PostFooter = ({post}) => {
   const [commentCaption, setCommentCaption] = useState("");
   const [showComment, setShowComment] = useState(false);
   const {isCommenting, handlePostComment} = usePostComment();
+
+  const authUser = useSelector(state => state.auth.user)
   const handleSubmitComment = async() => {
     await handlePostComment(post.id, commentCaption);
     setCommentCaption("");
@@ -35,14 +38,17 @@ const PostFooter = ({post}) => {
 
   </div>
   <hr className="mt-2"/>
-  <div className="bg-[#D9D9D9] p-3 h-[30px] w-[80%] flex items-center rounded-md mt-3 ml-[10px]">
-      <input placeholder="Add a comment" type="text" value= {commentCaption} onChange={(e) => setCommentCaption(e.target.value) }
-      className="w-[100%] h-[25px] outline-none bg-[#D9D9D9] border-none "
-      />
+  {authUser && (
+     <div className="bg-[#D9D9D9] p-3 h-[30px] w-[80%] flex items-center rounded-md mt-3 ml-[10px]">
+     <input placeholder="Add a comment" type="text" value= {commentCaption} onChange={(e) => setCommentCaption(e.target.value) }
+     className="w-[100%] h-[25px] outline-none bg-[#D9D9D9] border-none "
+     />
 
-      <button onClick={handleSubmitComment} className="border-solid border-[1px] ml-2 px-[5px] rounded-sm text-[10px]"
-        >{isCommenting ? "Commenting..." : "Comment"}</button>
-      </div>
+     <button onClick={handleSubmitComment} className="border-solid border-[1px] ml-2 px-[5px] rounded-sm text-[10px]"
+       >{isCommenting ? "Commenting..." : "Comment"}</button>
+     </div>
+  )}
+ 
 
     {showComment && <CommentSkeleton post={post}/>}
   

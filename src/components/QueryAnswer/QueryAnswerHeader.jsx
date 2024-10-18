@@ -1,9 +1,11 @@
 import { use } from "framer-motion/client";
 import { useState } from "react";
 import useQueryAnswer from "../../CommonHooks/useGetQueryAnswer";
+import useGetQueryCaption from "../../CommonHooks/useGetQueryById";
 
 const QueryAnswerHeader = () => {
   const {isAnswering, handleQUeryAnswer} = useQueryAnswer();
+  const {isLoading, caption} = useGetQueryCaption();
   const [answer, setAnswer] = useState("");
   const [isFollow, setIsFollow] = useState(false);
 
@@ -33,8 +35,7 @@ const QueryAnswerHeader = () => {
 
       <section className="border-b-[1px]">
         <div className="ml-[30px] mt-[20px] text-[30px] break-words">
-          Question:&nbsp;&nbsp;&nbsp;How to not suffer in the life and how one
-          shall live a life peacefully
+          Question:&nbsp;&nbsp;&nbsp;{caption}
         </div>
         <p className="ml-[30px] mb-[10px]">Date: 01-01-2022</p>
       </section>

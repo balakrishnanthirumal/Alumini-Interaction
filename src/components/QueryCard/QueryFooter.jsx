@@ -5,7 +5,7 @@ const QueryFooter = ({queries}) => {
       <div>
         <i className="fa-regular fa-thumbs-up text-2xl cursor-pointer"></i>
       </div>
-      <p className="mt-[5px]">{queries.likes.length}</p>
+      {/* <p className="mt-[5px]">{queries.likes.length}</p> */}
     </div>
     </div>
    

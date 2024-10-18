@@ -7,7 +7,7 @@ const ProfilePosts = ({isPost}) => {
  const {isUpdating, queries} =  useGetUserQuery()
  const noPostFound = !isLoading && posts.length === 0
  const noQueryFound = !isUpdating && queries.length === 0
-  // console.log(queries)
+  console.log(queries)
   return (
     <div className="mt-[100px] flex flex-col justify-center items-center h-auto w-full">
     {isPost ? (

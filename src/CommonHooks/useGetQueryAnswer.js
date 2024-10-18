@@ -13,7 +13,7 @@ const useQueryAnswer = () => {
     const dispatch = useDispatch();
 
 
-    const handlePostComment = async (queryId, answer) => {
+    const handleQueryAnswer = async (queryId, answer) => {
         if(isAnswering) return;
         if(!authUser) return showToast("Error", "Please login to comment", "error");
         setIsCommenting(true);
@@ -35,7 +35,8 @@ const useQueryAnswer = () => {
         finally{
             setIsAnswering(false);
         }
+        
     }
-    return {isAnswering, handleQUeryAnswer}
+    return {isAnswering, handleQueryAnswer}
 }
 export default useQueryAnswer
