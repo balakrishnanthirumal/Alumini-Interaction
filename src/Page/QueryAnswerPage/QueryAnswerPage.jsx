@@ -8,7 +8,6 @@ const QueryAnswerPage = () => {
       <div className=" auto pb-[30px] mt-[40px]">
 
 
-        
         <QueryAnswerHeader/>
 
         <QueryAnswerContent/>

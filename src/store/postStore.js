@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { comment } from "postcss";
 
 
     const postSlice = createSlice({
@@ -14,22 +13,10 @@ import { comment } from "postcss";
 
           setPost: (state, action) => {
             state.posts = action.payload;
-          },
-
-          addComment: (state, action) => {
-            state.posts = state.posts.map((post) =>{
-              if(post.id === action.payload.postId) {
-                return {
-                  ...post,
-                  comments: [ ...post.comments, action.payload.comment]
-                }
-              }
-              return post;
-            })
           }
         }
     });
 
-    export const { createPost, setPost, addComment } = postSlice.actions;
+    export const { createPost, setPost } = postSlice.actions;
 
     export default postSlice.reducer;

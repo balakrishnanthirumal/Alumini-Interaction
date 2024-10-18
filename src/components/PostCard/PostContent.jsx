@@ -29,7 +29,7 @@ const PostContent = () => {
         {isReadMore ? 'Read More' : 'Read Less'}
       </button>
 
-      <hr className=" mt-2"/>
+      <hr className="mx-3 mt-2"/>
     </div>
   );
 };
