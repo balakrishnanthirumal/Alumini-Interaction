@@ -1,5 +1,5 @@
 
-import { Navigate, Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router'
 import './App.css'
 import LoginRegister from './components/authentication/LoginRegister'
 import LoginForm from './components/authentication/StudentLoginForm'
@@ -15,21 +15,21 @@ import QueryFeedPage from './Page/QueryFeedPage/QueryFeedPage'
 import { useSelector } from 'react-redux'
 function App() {
   const authUser = useSelector(state => state.auth.user)
-  
+  console.log(authUser)
   return (
     <div className="test">
       <Routes>
-        <Route path='/' element = {!authUser? <LoginRegister /> : <Navigate to = '/home'/>}/>
-        <Route path='studentlogin/' element = {!authUser? <LoginForm /> : <Navigate to = '/home'/>}/>
-        <Route path='aluminilogin/' element = {!authUser? <AluminiLoginForm /> : <Navigate to = '/home'/>}/>
-        <Route path='/studentregistration/' element = {!authUser? <StudentRegistration /> : <Navigate to = '/home'/>}/>
-        <Route path='/aluminiregistration' element = {!authUser? <AluminiRegister /> : <Navigate to = '/home'/>}/>
+        <Route path='/' element = {<LoginRegister />}/>
+        <Route path='studentlogin/' element = {<LoginForm />}/>
+        <Route path='aluminilogin/' element = {<AluminiLoginForm />}/>
+        <Route path='/studentregistration/' element = {<StudentRegistration />}/>
+        <Route path='/aluminiregistration' element = {<AluminiRegister/>}/>
         <Route path='/home' element = {<HomePage/>}/>
-        <Route path='/search' element = {authUser? <SearchPage /> : <Navigate to = '/'/>}/>
-        <Route path='/feed' element = {authUser? <FeedPage /> : <Navigate to = '/'/>}/>
-        <Route path='/:username' element = {authUser? <ProfilePage /> : <Navigate to = '/'/>}/>
-        <Route path='/:username/:queryId' element = {authUser? <QueryAnswerPage /> : <Navigate to = '/'/>}/>
-        <Route path='/queryfeed' element = {authUser? <QueryFeedPage /> : <Navigate to = '/'/>}/>
+        <Route path='/search' element = {<SearchPage/>}/>
+        <Route path='/feed' element = {<FeedPage />}/>
+        <Route path='/:username' element = {<ProfilePage />}/>
+        <Route path='/:username/:queryId' element = {<QueryAnswerPage />}/>
+        <Route path='/queryfeed' element = {<QueryFeedPage />}/>
       </Routes>
      
     

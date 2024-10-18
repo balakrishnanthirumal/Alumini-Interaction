@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import useLogin from "../../CommonHooks/useLogin";
 const AluminiLoginForm = () => {
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
-  const {loading, error, loginIn} = useLogin();
   return (
     <>
       <div className="bg-[#BFC7EE]  flex flex-col items-center h-full">
@@ -53,13 +51,12 @@ const AluminiLoginForm = () => {
                   <i class="fa-solid fa-eye"></i>
                 </button>
               </div>
-              {error && <p className="text-red-500">{error.message}</p>}
+
               <button
                 type="submit"
                 className="bg-[#D9D9D9] h-[40px] w-[100px] mt-[40px] m-auto rounded-[10px]"
-                onClick={() => loginIn(inputs)}
               >
-                {loading ? "Loading..." : "Login"}
+                Submit
               </button>
             </div>
           </form>

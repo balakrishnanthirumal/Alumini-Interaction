@@ -1,10 +1,8 @@
-import NavigationBar from "../../components/NavigationBar/NavigationBar"
 import QueryCard from "../../components/QueryCard/QueryCard"
 
 const QueryFeedPage = () => {
   return (
     <div className="bg-[#FA8A8A] h-auto w-full border-solid border-[1px]">
-        <NavigationBar />
         <section className="mt-[40px] border-b-[1px] pb-[20px]">
             <div className="text-[36px] w-[153px] h-[44px] mx-auto">QUERIES</div>
         </section>

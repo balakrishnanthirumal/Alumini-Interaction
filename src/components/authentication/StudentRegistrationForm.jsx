@@ -1,18 +1,18 @@
 import { useState } from "react";
-import useSignUpWithEmail from "../../CommonHooks/useSignUpWithEmail";
+import useSignUpWithEmail from "../../studentHook/useSignUpWithEmail";
 
 const StudentRegistration = () => {
   const [studentData, setStudentData] = useState({
     name: "",
-    username: "",
     email: "",
     password: "",
     domain: "",
-    isAlumini: false,
-    batch: "",
-    
+    otherDomain: {
+      other1: "",
+      other2: "",
+    },
   });
-  const { loading, error, signup } = useSignUpWithEmail();
+  const { loading, error, signup} = useSignUpWithEmail()
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -40,15 +40,6 @@ const StudentRegistration = () => {
           />
           <input
             type="text"
-            placeholder="User Name"
-            value={studentData.username}
-            className="w-[300px] h-[40px] rounded-[10px] align-middle pl-3 outline-none"
-            onChange={(e) =>
-              setStudentData({ ...studentData, username: e.target.value })
-            }
-          />
-          <input
-            type="text"
             placeholder="Email"
             value={studentData.email}
             className="w-[300px] h-[40px] rounded-[10px] align-middle pl-3 outline-none"
@@ -58,7 +49,7 @@ const StudentRegistration = () => {
           />
           <div className=" w-[300px] bg-[#fff] rounded-[10px]">
             <input
-              type={showPassword ? "text" : "password"}
+              type = {showPassword ? "text" : "password"}
               value={studentData.password}
               placeholder="Password"
               className="rounded-[10px] h-[40px] w-[250px] pl-3 outline-none"
@@ -66,12 +57,8 @@ const StudentRegistration = () => {
                 setStudentData({ ...studentData, password: e.target.value })
               }
             />
-            <button
-              onClick={() => setShowPassword(!showPassword)}
-              className="cursor-pointer"
-            >
-              <i className="fa-solid fa-eye"></i>
-            </button>
+            <button onClick={()=>setShowPassword(!showPassword)}
+              className="cursor-pointer"><i class="fa-solid fa-eye" ></i></button>
           </div>
           <input
             type="text"
@@ -82,13 +69,14 @@ const StudentRegistration = () => {
               setStudentData({ ...studentData, domain: e.target.value })
             }
           />
+          
 
           <button
             type="submit"
             className="w-auto h-[40px] rounded-[10px]  mt-[30px] bg-[#8e9be5] text-white  border-solid border-2 pl-3 pr-3"
             onClick={() => signup(studentData)}
           >
-            {loading ? "Loading..." : "Register"}
+            Register
           </button>
         </form>
       </div>

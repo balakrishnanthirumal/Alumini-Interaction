@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./LoginForm.css";
 import { Link } from "react-router-dom";
-import useLogin from "../../CommonHooks/useLogin";
 
 const LoginForm = () => {
   const [inputs, setInputs] = useState({
@@ -13,9 +12,8 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(email, password);
   };
-
-  const {loading, error, loginIn} = useLogin();
   return (
     <div className="bg-[#BFC7EE] h-screen flex flex-col items-center ">
       <h2 className="text-3xl mt-[50px]">Student</h2>
@@ -57,16 +55,14 @@ const LoginForm = () => {
                   setShowPassword(!showPassword);
                 }}
               >
-                <i className="fa-solid fa-eye"></i>
+                <i class="fa-solid fa-eye"></i>
               </button>
             </div>
-            {error && <p className="text-[#f00]">{error.message}</p>}
             <button
               type="submit"
               className="bg-[#D9D9D9] h-[40px] w-[100px] mt-[40px] m-auto rounded-[10px]"
-              onClick={() => loginIn(inputs)} 
             >
-              {loading ? "Loading..." : "Login"}
+              Submit
             </button>
           </div>
         </form>

@@ -1,8 +1,9 @@
 import PostCard from "../PostCard/PostCard"
 import QueryCard from "../QueryCard/QueryCard"
-
+import useGetUserPosts from "../../CommonHooks/useGetUserPost"
+import useGetUserQuery from "../../CommonHooks/useGetUserQuery"
 const ProfilePosts = ({isPost}) => {
- const {isLoading, posts} =  useGetUserPost()
+ const {isLoading, posts} =  useGetUserPosts()
  const {isUpdating, queries} =  useGetUserQuery()
  const noPostFound = !isLoading && posts.length === 0
  const noQueryFound = !isUpdating && queries.length === 0
